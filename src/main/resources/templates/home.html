@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+<body>
+	<div id="page" layout:fragment="content">
+		<a href="/users" th:text="#{home.view-users.link}">View Users</a>
+	</div>
+</body>
+</html>

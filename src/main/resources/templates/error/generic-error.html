@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+<body>
+	<div id="page" layout:fragment="content">
+		<h1 th:text="#{error.generic-error.header}">Error</h1>
+		<table>
+			<tr>
+				<td th:text="#{error.generic-error.exception}">Exception</td>
+				<td th:text="${exception}" />
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

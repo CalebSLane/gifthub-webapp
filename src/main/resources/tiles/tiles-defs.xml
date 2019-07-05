@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    
+  <definition name="baseTemplate" template="/pages/common/baseTemplate.jsp">
+    <put-attribute name="header" value="/pages/common/header.jsp" />
+    <put-attribute name="body" value="/pages/common/blank.jsp" />
+    <put-attribute name="footer" value="/pages/common/footer.jsp" />
+  </definition>
+    
+  <definition name="genericError" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/error/genericErrorBody.jsp" />
+  </definition>
+    
+  <definition name="accessDeniedError" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/error/accessDeniedBody.jsp" />
+  </definition>
+    
+  <definition name="notFoundError" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/error/notFoundError.jsp" />
+  </definition>
+    
+    
+  <definition name="login" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/login/loginBody.jsp" />
+  </definition>
+    
+  <definition name="home" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/home/homeBody.jsp" />
+  </definition>
+    
+    
+  <definition name="user" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/user/userBody.jsp" />
+  </definition>
+    
+  <definition name="userList" extends="baseTemplate">
+    <put-attribute name="body" value="/pages/user/userListBody.jsp" />
+  </definition>
+    
+
+</tiles-definitions>

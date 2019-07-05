@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+
+<body>
+	<div id="page" layout:fragment="content">
+		<script src="/static/js/user/show-user.js"></script>
+		<table id="userFields">
+			<tr>
+				<td><label for="username" th:text="#{account.show-user.user.username}">Username</label></td>
+				<td><span th:text="${user.username}">Jane Doe</span></td>
+			</tr>
+			<tr>
+				<td><label for="email" th:text="#{account.show-user.user.email}">Email</label></td>
+				<td><span th:text="${user.email}">J.Doe@jdoe.com</span></td>
+			</tr>
+			<tr>
+				<td>
+					<button type="button" id="editUser" th:text="#{account.show-user.edit.button}">Edit</button>
+				</td>
+			</tr>
+		</table>
+		<form action="#" th:action="@{/users/{id}(id=${user.id})}"
+			th:object="${userForm}" method="post">
+			<table id="userFormFields" style="display: none">
+				<tr>
+					<td><label for="username" th:text="#{account.show-user.user.username}">Username</label></td>
+					<td><input type="text" th:field="*{username}" id="username"
+						placeholder="Username" th:placeholder="#{account.show-user.user.username-placeholder}"></td>
+					<td><span th:if="${#fields.hasErrors('*{username}')}"
+						th:errors="*{username}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="email" th:text="#{account.show-user.user.email}">Email</label></td>
+					<td><input type="text" th:field="*{email}" id="email"
+						placeholder="Email" th:placeholder="#{account.show-user.user.email-placeholder}"></td>
+					<td><span th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="password" th:text="#{account.show-user.user.password}">Password</label></td>
+					<td><input type="password" th:field="*{password}"
+						id="password" placeholder="Password" th:placeholder="#{account.show-user.user.password-placeholder}"></td>
+					<td><span th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}"></span></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Save User" th:value="#{account.show-user.save.button}">
+			</table>
+		</form>
+	</div>

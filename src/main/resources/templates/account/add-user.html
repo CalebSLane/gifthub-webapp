@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/default}">
+<body>
+	<div id="page" layout:fragment="content">
+		<form action="#" th:action="@{/users/new}" th:object="${userForm}"
+			method="post">
+			<table>
+				<tr>
+					<td><label for="username" th:text="#{account.add-user.user.username}">Username</label></td>
+					<td><input type="text" th:field="*{username}" id="username"
+						placeholder="Username" th:placeholder="#{account.add-user.user.username-placeholder}"></td>
+					<td><span th:if="${#fields.hasErrors('*{username}')}"
+						th:errors="*{username}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="email" th:text="#{account.add-user.user.email}">Email</label></td>
+					<td><input type="text" th:field="*{email}" id="email"
+						placeholder="Email" th:placeholder="#{account.add-user.user.email-placeholder}"></td>
+					<td><span th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}"></span></td>
+				</tr>
+				<tr>
+					<td><label for="password" th:text="#{account.add-user.user.password}">Password</label></td>
+					<td><input type="password" th:field="*{password}"
+						id="password" placeholder="Password" th:placeholder="#{account.add-user.user.password-placeholder}"></td>
+					<td><span th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}"></span></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Add" th:value="#{account.add-user.adduser.button}"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
